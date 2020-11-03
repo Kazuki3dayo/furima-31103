@@ -2,15 +2,18 @@
 
 ## usersテーブル
 
-|   Column   |  Type  |   Options   |
-| ---------- | ------ | ----------- |
-| nickname   | string | null: false |
-| email      | string | null: false |
-| password   | string | null: false |
-| 名字（漢字） | string | null: false |
-| 名前（漢字） | string | null: false |
-| 名字（カナ） | string | null: false |
-| 名前（カナ） | string | null: false |
+|   Column      |  Type      |   Options                      |
+| ------------- | ---------- | ------------------------------ |
+| nickname      | string     | null: false                    |
+| email         | string     | null: false                    |
+| password      | string     | null: false                    |
+| last_name     | string     | null: false                    |
+| first_name    | string     | null: false                    |
+| last_name2    | string     | null: false                    |
+| first_name2   | string     | null: false                    |
+| birth_year    | references | null: false, foreign_key: true |
+| birth_month   | references | null: false, foreign_key: true |
+| birth_day     | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -21,11 +24,16 @@
 
 ## itemsテーブル
 
-|   Column         |  Type   |   Options   |
-| ---------------- | ------  | ----------- |
-| item_name        | string  | null: false |
-| item_description | string  | null: false |
-| price            | integer | null: false |
+|   Column         |  Type      |   Options                      |
+| ---------------- | ---------  | ------------------------------ |
+| item_name        | string     | null: false                    |
+| item_description | string     | null: false                    |
+| price            | integer    | null: false                    |
+| category         | references | null: false, foreign_key: true |
+| condition        | references | null: false, foreign_key: true |
+| ship_charge      | references | null: false, foreign_key: true |
+| sipping_area     | references | null: false, foreign_key: true |
+| days to ship     | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -38,7 +46,6 @@
 
 |   Column      |  Type   |   Options   |
 | ------------- | ------  | ----------- |
-| card_number   | integer | null: false |
 | valid_month   | integer | null: false |
 | valid_year    | integer | null: false |
 | security_code | integer | null: false |
@@ -51,13 +58,14 @@
 
 ## shippingsテーブル
 
-|   Column      |  Type   |   Options   |
-| ------------- | ------  | ----------- |
-| post_code     | integer | null: false |
-| municipality  | string  | null: false |
-| address       | text    | null: false |
-| building_name | text    | null: false |
-| phone_number  | integer | null: false |
+|   Column      |  Type      |   Options                      |
+| ------------- | ---------  | ------------------------------ |
+| post_code     | string     | null: false                    |
+| prefectures   | references | null: false, foreign_key: true |
+| municipality  | string     | null: false                    |
+| address       | string     | null: false                    |
+| building_name | string     | null: false                    |
+| phone_number  | string     | null: false                    |
 
 ### Association
 
