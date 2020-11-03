@@ -30,7 +30,7 @@
 | category_id      | integer    | null: false                    |
 | condition_id     | integer    | null: false                    |
 | ship_charge_id   | integer    | null: false                    |
-| sipping_area_id  | integer    | null: false                    |
+| prefectures_id   | integer    | null: false                    |
 | days_to_ship_id  | integer    | null: false                    |
 
 ### Association
