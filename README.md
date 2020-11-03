@@ -1,24 +1,75 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+|   Column   |  Type  |   Options   |
+| ---------- | ------ | ----------- |
+| nickname   | string | null: false |
+| email      | string | null: false |
+| password   | string | null: false |
+| 名字（漢字） | string | null: false |
+| 名前（漢字） | string | null: false |
+| 名字（カナ） | string | null: false |
+| 名前（カナ） | string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many : items
+- has_many : buys
+- has_many : comments
+- has_one : birth
 
-* Configuration
+## itemsテーブル
 
-* Database creation
+|   Column         |  Type   |   Options   |
+| ---------------- | ------  | ----------- |
+| item_name        | string  | null: false |
+| item_description | string  | null: false |
+| price            | integer | null: false |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to : user
+- has_one : buy
+- has_many : comments
+- has_many : select
 
-* Services (job queues, cache servers, search engines, etc.)
+## buysテーブル
 
-* Deployment instructions
+|   Column      |  Type   |   Options   |
+| ------------- | ------  | ----------- |
+| card_number   | integer | null: false |
+| valid_month   | integer | null: false |
+| valid_year    | integer | null: false |
+| security_code | integer | null: false |
 
-* ...
+### Association
+
+- belongs_to : user
+- belongs_to : item
+- has_one : shipping
+
+## shippingsテーブル
+
+|   Column      |  Type   |   Options   |
+| ------------- | ------  | ----------- |
+| post_code     | integer | null: false |
+| municipality  | string  | null: false |
+| address       | text    | null: false |
+| building_name | text    | null: false |
+| phone_number  | integer | null: false |
+
+### Association
+
+- belongs_to : buy
+
+## commentsテーブル
+
+|   Column  |  Type   |   Options   |
+| --------- | ------  | ----------- |
+| text      | text    | null: false |
+
+### Association
+
+- belongs_to : user
+- belongs_to : item
