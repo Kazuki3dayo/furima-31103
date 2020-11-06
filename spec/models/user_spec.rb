@@ -5,7 +5,6 @@ RSpec.describe User, type: :model do
       @user = FactoryBot.build(:user)
     end
     it 'nicknameとemail、passwordとpassword_confirmation、本名、フリガナ、誕生日が存在すれば登録できること' do
-      # binding.pry
       expect(@user).to be_valid
     end
 
