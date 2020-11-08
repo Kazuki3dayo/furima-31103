@@ -18,6 +18,7 @@ class Item < ApplicationRecord
   # 商品のバリデーション
   validates :name, :description, presence: true
   validates :price, format: { with: /\A[0-9]+\z/, message: 'には半角数字を使用してください' }
+  validates :price, numericality: { only_integer: true, message: "is invalid. Input half-width characters." }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'は¥300〜¥9,999,999の範囲内で入力してください' }
 
   # 商品詳細のバリデーション
