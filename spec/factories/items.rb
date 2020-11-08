@@ -3,7 +3,6 @@ FactoryBot.define do
     name              { 'キウイブラザーズ' }
     description       { 'キウイブラザーズです' }
     price             { 5000 }
-    user_id           { 1 }
     category_id       { 2 }
     condition_id      { 3 }
     ship_charge_id    { 2 }

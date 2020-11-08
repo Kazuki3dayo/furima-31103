@@ -73,15 +73,21 @@ RSpec.describe Item, type: :model do
     end
 
     it 'priceの値が¥300以下では登録できないこと' do
-      @item.price = 100
+      @item.price = 299
       @item.valid?
       expect(@item.errors.full_messages).to include('Price は¥300〜¥9,999,999の範囲内で入力してください')
     end
 
     it 'priceの値が¥9,999,999以上では登録できないこと' do
-      @item.price = 50_000_000
+      @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price は¥300〜¥9,999,999の範囲内で入力してください')
+    end
+
+    it 'priceの値は半角数字以外は登録できないこと' do
+      @item.price = '５０００'
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price は¥300〜¥9,999,999の範囲内で入力してください")
     end
   end
 end
