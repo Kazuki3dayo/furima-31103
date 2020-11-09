@@ -30,7 +30,7 @@
 | category_id      | integer    | null: false                    |
 | condition_id     | integer    | null: false                    |
 | ship_charge_id   | integer    | null: false                    |
-| prefectures_id   | integer    | null: false                    |
+| prefecture_id   | integer    | null: false                    |
 | days_to_ship_id  | integer    | null: false                    |
 
 ### Association
@@ -57,7 +57,7 @@
 |   Column         |  Type      |   Options                      |
 | ---------------- | ---------  | ------------------------------ |
 | post_code        | string     | null: false                    |
-| prefectures_id   | integer    | null: false                    |
+| prefecture_id   | integer    | null: false                    |
 | municipality     | string     | null: false                    |
 | address          | string     | null: false                    |
 | building_name    | string     |                                |

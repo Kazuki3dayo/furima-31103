@@ -25,5 +25,5 @@ class Item < ApplicationRecord
   validates :category_id, :condition_id, numericality: { other_than: 1, message: 'の詳細情報を選択してください' }
 
   # 配送についてのバリデーション
-  validates :ship_charge_id, :prefectures_id, :days_to_ship_id, numericality: { other_than: 1, message: 'の発送情報を選択してください' }
+  validates :ship_charge_id, :prefecture_id, :days_to_ship_id, numericality: { other_than: 1, message: 'の発送情報を選択してください' }
 end
