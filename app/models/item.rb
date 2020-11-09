@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :condition
   belongs_to :ship_charge
-  belongs_to :prefecture
+  belongs_to :prefectures
   belongs_to :days_to_ship
 
   validates :image, presence: true, unless: :was_attached?
