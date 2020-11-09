@@ -52,10 +52,10 @@ RSpec.describe Item, type: :model do
     end
 
     # 発送地域
-    it 'prefectures_id(発送元の地域)が選択されていなければ登録できないこと' do
-      @item.prefectures_id = 1
+    it 'prefecture_id(発送元の地域)が選択されていなければ登録できないこと' do
+      @item.prefecture_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Prefectures の発送情報を選択してください')
+      expect(@item.errors.full_messages).to include('Prefecture の発送情報を選択してください')
     end
 
     # 発送までの日数

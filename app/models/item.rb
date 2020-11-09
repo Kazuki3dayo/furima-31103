@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :condition
   belongs_to :ship_charge
-  belongs_to :prefectures
+  belongs_to :prefecture
   belongs_to :days_to_ship
 
   validates :image, presence: true, unless: :was_attached?
@@ -25,5 +25,5 @@ class Item < ApplicationRecord
   validates :category_id, :condition_id, numericality: { other_than: 1, message: 'の詳細情報を選択してください' }
 
   # 配送についてのバリデーション
-  validates :ship_charge_id, :prefectures_id, :days_to_ship_id, numericality: { other_than: 1, message: 'の発送情報を選択してください' }
+  validates :ship_charge_id, :prefecture_id, :days_to_ship_id, numericality: { other_than: 1, message: 'の発送情報を選択してください' }
 end
