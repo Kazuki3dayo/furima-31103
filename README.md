@@ -16,8 +16,8 @@
 ### Association
 
 - has_many : items
-- has_many : buys
-- has_many : comments
+- has_many : orders
+<!-- - has_many : comments -->
 
 ## itemsテーブル
 
@@ -30,16 +30,16 @@
 | category_id      | integer    | null: false                    |
 | condition_id     | integer    | null: false                    |
 | ship_charge_id   | integer    | null: false                    |
-| prefecture_id   | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | days_to_ship_id  | integer    | null: false                    |
 
 ### Association
 
 - belongs_to : user
-- has_one : buy
-- has_many : comments
+- has_one : order
+<!-- - has_many : comments -->
 
-## buysテーブル
+## ordersテーブル
 
 |   Column   |  Type      |   Options                      |
 | ---------- | ---------- | ------------------------------ |
@@ -62,11 +62,11 @@
 | address          | string     | null: false                    |
 | building_name    | string     |                                |
 | phone_number     | string     | null: false                    |
-| buy              | references | null: false, foreign_key: true |
+| order            | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to : buy
+- belongs_to : orders
 
 ## commentsテーブル
 
