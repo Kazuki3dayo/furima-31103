@@ -81,7 +81,6 @@ RSpec.describe OrderShipping, type: :model do
       expect(@order_shipping.errors.full_messages).to include('Phone number は正確に入力してください')
     end
     it 'phone_numberの入力桁数が多い時は保存できないこと' do
-      binding.pry
       @order_shipping.phone_number = '090-1234-5678'
       @order_shipping.valid?
       expect(@order_shipping.errors.full_messages).to include('Phone number は正確に入力してください')
