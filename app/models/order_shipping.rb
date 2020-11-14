@@ -1,9 +1,9 @@
 class OrderShipping
   include ActiveModel::Model
-  attr_accessor :item_id, :user_id, :post_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :order_id
+  attr_accessor :item_id, :user_id, :post_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :order_id, :token
 
   with_options presence: true do
-    validates :post_code, :prefecture_id, :city, :house_number, :phone_number
+    validates :post_code, :prefecture_id, :city, :house_number, :phone_number, :token
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :prefecture_id, numericality: { other_than: 1, message: 'の発送情報を選択してください' }
   end
